@@ -14,6 +14,6 @@ int main(void)
 
 	for (; i < 10; i++)
 		printf("%d", i);
-
+	printf('\n');
 	return (0);
 }
