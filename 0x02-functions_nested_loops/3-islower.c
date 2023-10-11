@@ -2,14 +2,14 @@
 
 /**
  * _islower - prints 1 if a character is lowercase and zero otherwise
- *
+ * @c: The character being tested
  * Return: Always 0
  */
 
 int _islower(int c)
 {
 	if (c < 97)
-		return 0;
+		return (0);
 	else
-		return 1;
+		return (1);
 }
