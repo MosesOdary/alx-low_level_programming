@@ -10,6 +10,6 @@ int main(void)
 	char ch[] = "_putchar";
 	int i = 0;
 	for ( ; i < 8; i++)
-		ch[i];
+		_putchar(ch[i]);
 	return (0);
 }
