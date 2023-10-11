@@ -7,4 +7,5 @@
  * Desc: Header file containing declartions for functions
  */
 int _putchar(char ch);
+void print_alphabet(void);
 #endif
