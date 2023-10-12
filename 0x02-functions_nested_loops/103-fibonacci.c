@@ -22,7 +22,7 @@ int main(void)
 		{
 			sum += fibonacciArray[i];
 		}
-	printf("%ld", sum);
+	printf("%ld\n", sum);
 
 	return (0);
 }
