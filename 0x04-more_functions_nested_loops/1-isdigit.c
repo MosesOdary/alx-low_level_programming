@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isupper - Function that checks for a digit
+ * _isupper - checks for a digit
  *
  * @c: The character being tested
  *
@@ -10,7 +10,7 @@
 
 int _isdigit(int c)
 {
-	if (c > 47 && c < 58)
+	if ((c > 47) && (c < 58))
 		return (1);
 	else
 		return (0);
