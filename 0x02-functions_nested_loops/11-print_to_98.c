@@ -11,6 +11,7 @@
 void print_to_98(int n)
 {
 	int i = 0;
+	
 	if (n < 98)
 		for (i = n; i < 99; i++)
 		{
@@ -24,4 +25,6 @@ void print_to_98(int n)
 			_putchar((i / 10) + '0');
 			_putchar((i % 10) + '0');
 		}
+	
+	_putchar('\n');
 }
