@@ -17,17 +17,15 @@ void print_to_98(int n)
 		for (i = n; i < 99; i++)
 		{
 			printf("%d, ", i);
-			printf("\n");
 		}
 
 	else if (n > 98)
 		for (i = n; i > 97; i--)
 		{
 			printf("%d, ", i);
-			printf("\n");
 		}
 	else
-		printf("%d\n", 98);
+		printf("%d", 98);
 
 	_putchar('\n');
 }
