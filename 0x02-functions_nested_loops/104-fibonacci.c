@@ -17,8 +17,8 @@ int main(void)
 {
 	int i = 2;
 
-	for (; i < 100; i++)
-		printf("%d, ", Fibonacci(i));
+	/*for (; i < 100; i++)*/
+		printf("%d, ", Fibonacci(12));
 
 	return (0);
 }
