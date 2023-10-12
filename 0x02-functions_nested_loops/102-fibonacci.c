@@ -14,9 +14,9 @@ int main(void)
 	for (i = 2; i < 50; i++)
 		fibonacciArray[i] = fibonacciArray[i - 2] + fibonacciArray[i - 1];
 
-	for (i = 0; i < 50; i++)
+	for (i = 0; i < 49; i++)
 		printf("%ld, ", fibonacciArray[i]);
-	printf("\n");
+	printf("%ld\n", fibonacciArray[49]);
 
 	return (0);
 }
