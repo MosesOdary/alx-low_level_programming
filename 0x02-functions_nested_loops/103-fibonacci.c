@@ -9,6 +9,7 @@
 int main(void)
 {
 	int i = 2;
+	long int sum = 0;
 	long int fibonacciArray[32] = {1, 2};
 
 	do {
@@ -16,12 +17,12 @@ int main(void)
 		i++;
 	} while (i < 32);
 
-	for (i = 0; i < 31; i++)
+	for (i = 0; i < 32; i++)
 		if ((fibonacciArray[i] % 2) == 0)
 		{
-			printf("%ld, ", fibonacciArray[i]);
+			sum += fibonacciArray[i];
 		}
-	printf("%ld", fibonacciArray[31]);
+	printf("%ld", sum);
 
 	return (0);
 }
