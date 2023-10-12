@@ -12,6 +12,6 @@ int print_last_digit(int num)
 
 	if (temp < 0)
 		temp = -temp;
-	_putchar(num + '0');
+	_putchar(num);
 	return (temp);
 }
