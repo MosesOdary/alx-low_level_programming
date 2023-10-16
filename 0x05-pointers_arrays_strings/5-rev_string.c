@@ -4,6 +4,7 @@
 
 /**
  * print_rev - Print string in reverse
+ *
  * _strlen - Return the length of a string
  *
  * @s: The string being worked on
@@ -11,7 +12,7 @@
  * Return: void
 */
 
-void rev_string(char* s)
+void rev_string(char *s)
 {
 	int i = 0;
 	int stringLength = _strlen(s);
@@ -26,9 +27,9 @@ void rev_string(char* s)
 	}
 }
 
-int _strlen(char* s)
+int _strlen(char *s)
 {
-	const char* end = s;
+	const char *end = s;
 
 	for (; *end != '\0'; ++end)
 		;
