@@ -8,7 +8,7 @@
  * Return: void
 */
 
-void print_rev(char* s)
+void print_rev(char *s)
 {
 	const char *end = s;
 	int stringLength = 0;
