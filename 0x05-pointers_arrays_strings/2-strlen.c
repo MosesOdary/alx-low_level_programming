@@ -10,7 +10,7 @@
 
 int _strlen(char *s)
 {
-	const char* end = s;
+	const char *end = s;
 
 	for ( ; *end != '\0'; ++end)
 		;
