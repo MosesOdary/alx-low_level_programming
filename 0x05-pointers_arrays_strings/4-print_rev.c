@@ -19,7 +19,7 @@ void print_rev(char* s)
 	stringLength = (end - s);
 
 	do	{
-		putchar(*end);
+		_putchar(*end);
 		end--;
 	} while (stringLength--);
 }
