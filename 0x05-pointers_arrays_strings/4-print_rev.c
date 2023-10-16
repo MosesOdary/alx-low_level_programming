@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _puts - Print string to std out followed by a new line
+ * print_rev - Print string in reverse
  *
- * @str: The string being printed
+ * @s: The string being printed
  *
  * Return: void
 */
@@ -14,6 +14,7 @@ void print_rev(char *s)
 
 	for ( ; *end != '\0'; ++end)
 		;
+	
 	for ( ; *end != *s; end--)
 		_putchar(*end);
 }
