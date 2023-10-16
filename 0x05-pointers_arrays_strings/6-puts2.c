@@ -10,11 +10,11 @@
 
 void puts2(char *str)
 {
-    int i = 0;
-    int stringLength = _strlen(str);
+	int i = 0;
+	int stringLength = _strlen(str);
 
-    for (; i < stringLength; i += 2)
-        _putchar(str[i]);
+	for (; i < stringLength; i += 2)
+		_putchar(str[i]);
 }
 
 
