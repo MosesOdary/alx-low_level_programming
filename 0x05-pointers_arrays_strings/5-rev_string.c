@@ -26,7 +26,7 @@ void rev_string(char *s)
 /**
  * _strlen - Return the length of a string
  *
- * @s: The string whose length is beib=ng checked
+ * @s: The string whose length is being checked
  *
  * Return: void
 */
