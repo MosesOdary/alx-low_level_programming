@@ -20,8 +20,9 @@ void print_rev(char* s)
 
 	end--;
 	do	{
-		_putchar(*end);
+		putchar(*end);
 		end--;
-	} while (stringLength--);
+		stringLength--;
+	} while (stringLength > 0);
 	_putchar('\n');
 }
