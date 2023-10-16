@@ -17,7 +17,7 @@ void rev_string(char *s)
 	int i = 0;
 	int stringLength = _strlen(s);
 	int j = stringLength;
-	char temp = ' ';	
+	char temp = ' ';
 
 	for (; i < stringLength / 2; i++)
 	{
