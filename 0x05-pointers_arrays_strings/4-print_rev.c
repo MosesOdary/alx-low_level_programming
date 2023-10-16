@@ -10,7 +10,7 @@
 
 void print_rev(char* s)
 {
-	const char* end = s;
+	const char *end = s;
 	int stringLength = 0;
 
 	for (; *end != '\0'; ++end)
@@ -18,6 +18,7 @@ void print_rev(char* s)
 
 	stringLength = (end - s);
 
+	end--;
 	do	{
 		_putchar(*end);
 		end--;
