@@ -5,7 +5,7 @@
 /**
  * rev_string - reverse a string
  *
- * _strlen - Return the length of a string
+ * _strlen - get a strings length
  *
  * @s: The string being worked on
  *
