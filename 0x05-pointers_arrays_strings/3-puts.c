@@ -11,5 +11,5 @@
 
 void _puts(char *str)
 {
-	write(2, str, _strlen(str));
+	write(2, str, sizeof(str));
 }
