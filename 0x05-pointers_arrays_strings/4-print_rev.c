@@ -18,11 +18,14 @@ void print_rev(char *s)
 
 	stringLength = (end - s);
 
-	end--;
-	do	{
-		_putchar(*end);
+	if (stringLength > 0)
+	{
 		end--;
-		stringLength--;
-	} while (stringLength > 0);
+		do	{
+			_putchar(*end);
+			end--;
+			stringLength--;
+		} while (stringLength > 0);
+	}
 	_putchar('\n');
 }
