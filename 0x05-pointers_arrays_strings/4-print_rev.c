@@ -8,13 +8,18 @@
  * Return: void
 */
 
-void print_rev(char *s)
+void print_rev(char* s)
 {
-	const char *end = s;
+	const char* end = s;
+	int stringLength = 0;
 
-	for ( ; *end != '\0'; ++end)
+	for (; *end != '\0'; ++end)
 		;
-	
-	for ( ; *end != *s; end--)
-		_putchar(*end);
+
+	stringLength = (end - s);
+
+	do	{
+		putchar(*end);
+		end--;
+	} while (stringLength--);
 }
