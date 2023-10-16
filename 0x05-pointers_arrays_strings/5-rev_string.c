@@ -3,7 +3,7 @@
 #include "main.h"
 
 /**
- * print_rev - Print string in reverse
+ * rev_string - reverse a string
  *
  * _strlen - Return the length of a string
  *
