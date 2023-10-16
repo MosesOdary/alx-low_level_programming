@@ -10,15 +10,31 @@
 
 void puts_half(char *str)
 {
-	int stringLength = _strlen(str);
-	int halfLength = stringLength / 2;
+	int stringLength = 0;
+	int halfLength = 0;
 	int i = 0;
 
-	if ((stringLength % 2) != 0)
-		halfLength = ((stringLength - 1) / 2);
+	while (str[stringLength] != 0)
+	{
+		stringLength++;
+	}
 
-	for (i = halfLength; i < stringLength; i++)
-		_putchar(str[i]);
+	if ((stringLength % 2) == 0)
+	{
+		halfLength = stringLength / 2;
+		for (i = halfLength; i < stringLength; i++)
+		{
+			_putchar(str[i]);
+		}
+	}
+	if ((stringLength % 2) != 0)
+	{
+		halfLength = ((stringLength - 1) / 2);
+		for (i = halfLength; i < stringLength; i++)
+		{
+			_putchar(str[i]);
+		}
+	}
 	_putchar('\n');
 }
 
