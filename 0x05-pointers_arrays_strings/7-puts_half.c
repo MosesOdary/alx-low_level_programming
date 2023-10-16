@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * puts2 - Print half a string
+ * puts_half - Print half a string
  *
  * @str: The string being printed
  *
@@ -10,11 +10,11 @@
 
 void puts_half(char *str)
 {
-	int i = 0;
 	int stringLength = _strlen(str);
 	int halfLength = stringLength / 2;
+	int i = halfLength;
 
-	for (; i < halfLength; i++)
+	for (; i < stringLength; i++)
 		_putchar(str[i]);
 	_putchar('\n');
 }
