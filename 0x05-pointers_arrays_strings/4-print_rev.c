@@ -22,4 +22,5 @@ void print_rev(char* s)
 		_putchar(*end);
 		end--;
 	} while (stringLength--);
+	_putchar('\n');
 }
