@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * _strlen - get a strings length
- *
  * rev_string - reverse a string
+ **
+ * _strlen - get a strings length
  *
  * @s: The string being worked on
  *
