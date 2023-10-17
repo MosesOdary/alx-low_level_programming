@@ -8,9 +8,9 @@
  * Return: void
 */
 
-int _atoi(char* s)
+int _atoi(char *s)
 {
- 	long i = 0;
+	long i = 0;
 	int sign = 1;
 
 	while (*s)
