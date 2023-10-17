@@ -10,8 +10,8 @@
 
 int _atoi(char *s)
 {
-	long i = 0;
-	int sign = 1;
+	unsigned int i = 0;
+	_int64 sign = 1;
 
 	while (*s)
 	{
