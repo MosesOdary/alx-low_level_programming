@@ -11,7 +11,7 @@
 int _atoi(char *s)
 {
 	unsigned int i = 0;
-	_int64 sign = 1;
+	int sign = 1;
 
 	while (*s)
 	{
