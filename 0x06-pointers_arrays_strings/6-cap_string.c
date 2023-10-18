@@ -11,6 +11,18 @@
 
 char *cap_string(char *str)
 {
+	char prev  = '0';
 
+	while (str++)
+	{
+		prev = str--;
+		if ((prev == ' ') || (prev == '\t') || (prev == '\n') ||
+		(prev == ',') || (prev == ';') || (prev == '.') || (prev == '!')
+		|| (prev == '?') || (prev == '\"') || (prev == '(') ||
+		(prev == ')') || (prev == '{') || (prev == '}'))
+			*str -= ' ';
+	}
+
+	return (str);
 }
 
