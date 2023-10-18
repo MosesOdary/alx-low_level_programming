@@ -14,6 +14,8 @@ char *cap_string(char *str)
 	char *bufferStart = str;
 	char prev  = '0';
 
+	if (str[0] >= 'a' && str[0] <= 'z')
+		str[0] -= ' ';
 	while (*str != '\0')
 	{
 		prev = *(str - 1);
