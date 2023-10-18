@@ -11,6 +11,12 @@
 
 char *string_toupper(char *str)
 {
+	int i = 0;
+	int length = strlen(str);
 
+	for (; i < length; i++)
+		str[i] -= ' ';
+
+	return (str);
 }
 
