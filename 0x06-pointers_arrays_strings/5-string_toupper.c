@@ -15,7 +15,10 @@ char *string_toupper(char *str)
 	int length = strlen(str);
 
 	for (; i < length; i++)
-		str[i] -= ' ';
+		if (str[i] > 90)
+		{
+			str[i] -= ' ';
+		}
 
 	return (str);
 }
