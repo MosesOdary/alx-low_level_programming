@@ -11,11 +11,10 @@
 
 char *cap_string(char *str)
 {
-	int i = 0;
-	int length = strlen(str);
+	char* bufferStart = str;
 	char prev  = '0';
 
-	for (; i < length; i++)
+	while(*str != '\0')
 	{
 		prev = *(str - 1);
 		if (
@@ -34,7 +33,10 @@ char *cap_string(char *str)
 		str++;
 	}
 
-	return (str);
+	str = bufferStart;
+
+	return str;
 }
+
 
 
