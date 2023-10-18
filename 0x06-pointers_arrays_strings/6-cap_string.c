@@ -11,18 +11,30 @@
 
 char *cap_string(char *str)
 {
+	int i = 0;
+	int length = strlen(str);
 	char prev  = '0';
 
-	while (str++)
+	for (; i < length; i++)
 	{
-		prev = *(str--);
-		if ((prev == ' ') || (prev == '\t') || (prev == '\n') ||
-		(prev == ',') || (prev == ';') || (prev == '.') || (prev == '!')
-		|| (prev == '?') || (prev == '\"') || (prev == '(') ||
-		(prev == ')') || (prev == '{') || (prev == '}'))
-			*str -= ' ';
+		prev = *(str - 1);
+		if (
+			prev == ' ' || prev == '\t' || prev == '\n'
+			|| prev == ',' || (prev == ';') || (prev == '.')
+			|| (prev == '!') || prev == '?' || prev == '\"'
+			|| prev == '(' || prev == ')' || prev == '{' || prev == '}'
+			)
+		{
+			if (*str >= 'a' && *str <= 'z')
+			{
+				*str -= ' ';
+			}
+		}
+
+		str++;
 	}
 
 	return (str);
 }
+
 
