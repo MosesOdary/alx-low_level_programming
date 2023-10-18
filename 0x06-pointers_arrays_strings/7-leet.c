@@ -10,6 +10,24 @@
 
 char *leet(char *str)
 {
+	const unsigned char arraySize = 5;
+	char *cp = str;
+	char key[arraySize] = {'A', 'E', 'O', 'T', 'L'};
+	int value[arraySize] = {4, 3, 0, 7, 1};
+	unsigned int i = 0;
 
+	while (*str)
+	{
+		for (; i < arraySize; i++)
+		{
+			if (*str == key[i] || *str == key[i] + ' ')
+			{
+				*str = '0' + value[i];
+			}
+		}
+		str++;
+	}
+
+	return (cp);
 }
 
