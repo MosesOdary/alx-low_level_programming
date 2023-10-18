@@ -10,7 +10,6 @@
 
 char *leet(char *str)
 {
-	const unsigned char arraySize = 5;
 	char *cp = str;
 	char key[] = {'A', 'E', 'O', 'T', 'L'};
 	int value[] = {4, 3, 0, 7, 1};
@@ -18,7 +17,7 @@ char *leet(char *str)
 
 	while (*str)
 	{
-		for (; i < arraySize; i++)
+		for (i = 0; i < sizeof(key) / sizeof(char); i++)
 		{
 			if (*str == key[i] || *str == key[i] + ' ')
 			{
