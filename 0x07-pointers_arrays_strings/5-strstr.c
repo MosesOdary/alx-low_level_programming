@@ -37,10 +37,10 @@ char *_strstr(char *haystack, char *needle)
 		if (count == length)
 			break;
 	}
-	
+
 	if (*(haystack + j) != '\0')
 		return (haystack + j);
 
 	else
-		return NULL;
+		return ('\0');
 }
