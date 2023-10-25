@@ -1,19 +1,21 @@
 #include "main.h"
 
 /**
-* _print_rev_recursion - prints string in reverse
+* _print_rev_recursion - print string backwards
 *
-* @s: pointer to first haracter in string
+* @s: string to print
 */
+
 
 void _print_rev_recursion(char *s)
 {
-	uint8_t length = strlen(s);
+	if (*s == '\0')
+	{
+	}
 
-	while (length--)
+	else
 	{
 		_print_rev_recursion(s++);
 		_putchar(*s);
 	}
 }
-
