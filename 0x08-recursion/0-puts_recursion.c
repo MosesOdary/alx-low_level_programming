@@ -6,14 +6,19 @@
 * @s: string to print
 */
 
+
+
 void _puts_recursion(char *s)
 {
-	do {
+	if (*s == '\0')
+	{
+		_putchar('\n');
+		return;
+	}
+	else
+	{
 		_putchar(*s);
 		s++;
 		_puts_recursion(s);
-	} while (*s);
-	
-	_putchar('\n');
+	}
 }
-
