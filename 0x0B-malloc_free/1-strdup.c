@@ -10,22 +10,24 @@
 
 char *_strdup(char *str)
 {
-	uint16_t length = strlen(str);
-	uint8_t i = 0;
-	char *copy = NULL;
+	char *copy;
+	int index, len;
 
 	if (!str)
 		return (NULL);
 
-	copy = malloc(sizeof(char) * (length + 1));
+	for (index = 0; str[index]; index++)
+		len++;
+	
+	copy = malloc(sizeof(char) * (len + 1));
 
 	if (!copy)
 		return (NULL);
 
-	for (; i < length; i++)
-		copy[i] = str[i];
+	for (index = 0; str[index]; index++)
+		copy[index] = str[index];
 
-	copy[length] = '\0';
+	copy[len] = '\0';
 
 	return (copy);
 }
