@@ -12,8 +12,8 @@
 char *str_concat(char *s1, char *s2)
 {
 	char *newString = NULL;
-	uint16_t s1Length = strlen(s1);
-	uint16_t s2Length = strlen(s2);
+	uint16_t s1Length = 0;
+	uint16_t s2Length = 0;
 	uint8_t i = 0, j = 0;
 
 	if (!s1)
@@ -21,6 +21,13 @@ char *str_concat(char *s1, char *s2)
 
 	if (!s2)
 		s2 = "";
+
+	for (; *(s1 + s1Length); s1Length++)
+	{
+	}
+	for (; *(s2 + s2Length); s2Length++)
+	{
+	}
 
 	newString = malloc(sizeof(char) * (s1Length + s2Length + 1));
 
