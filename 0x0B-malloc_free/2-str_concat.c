@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* str_newString - function that concatenates two strings.
+* str_concat - function that concatenates two strings.
 *
 * @s1: string to append to
 * @s2: string to be appended
@@ -16,12 +16,13 @@ char *str_concat(char *s1, char *s2)
 	uint16_t s2Length = strlen(s2);
 	uint8_t i, j = 0;
 
-	if (!s1)
+	if (s1 == NULL)
 		s1 = "";
-	if (!s2)
+	if (s2 == NULL)
 		s2 = "";
 
 	newString = malloc(sizeof(char) * (s1Length + s2Length + 1));
+	
 	if (newString == NULL)
 		return (NULL);
 
