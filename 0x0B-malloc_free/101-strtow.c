@@ -64,7 +64,7 @@ char **strtow(char *str)
 	uint16_t numberOfWords = 0, letters = 0;
 
 	numberOfWords = CountWords(str);
-	
+
 	if (!str || !numberOfWords)
 		return (NULL);
 
