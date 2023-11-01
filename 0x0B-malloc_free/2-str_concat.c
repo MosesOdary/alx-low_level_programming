@@ -9,7 +9,7 @@
 * Return: combined string (success)
 */
 
-char *str_newString(char *s1, char *s2)
+char *str_concat(char *s1, char *s2)
 {
 	char *newString = NULL;
 	uint16_t s1Length = strlen(s1);
