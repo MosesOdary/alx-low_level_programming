@@ -12,8 +12,8 @@
 char *argstostr(int ac, char **av)
 {
 	char *str = NULL;
-	uint8_t i = 0, j = 0, k = 0;
-	uint8_t length = 0;
+	uint16_t i = 0, j = 0, k = 0;
+	uint16_t length = 0;
 
 	if (!ac || !av)
 		return (NULL);
