@@ -42,7 +42,7 @@ int CountWords(char *str)
 		if (*(str + i) != ' ')
 		{
 			numberOfWords++;
-			i += word_len(str + i);
+			i += LengthOfWord(str + i);
 		}
 	}
 
