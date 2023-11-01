@@ -14,12 +14,12 @@ char *_strdup(char *str)
 	uint8_t i = 0;
 	char *copy = NULL;
 
-	if (str == NULL)
+	if (!str)
 		return (NULL);
 
 	copy = malloc(sizeof(char) * (length + 1));
 
-	if (copy == NULL)
+	if (!copy)
 		return (NULL);
 
 	for (; i < length; i++)
