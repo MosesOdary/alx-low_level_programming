@@ -63,12 +63,9 @@ char **strtow(char *str)
 	uint8_t i = 0, j = 0, k = 0;
 	uint16_t numberOfWords = 0, letters = 0;
 
-	if (!str)
-		return (NULL);
-
 	numberOfWords = CountWords(str);
-
-	if (!numberOfWords)
+	
+	if (!str || !numberOfWords)
 		return (NULL);
 
 	words = malloc(sizeof(char *) * (numberOfWords + 1));
@@ -82,7 +79,6 @@ char **strtow(char *str)
 			i++;
 
 		letters = LengthOfWord(str + i);
-
 		words[j] = malloc(sizeof(char) * (letters + 1));
 
 		if (!words[j])
@@ -99,8 +95,7 @@ char **strtow(char *str)
 
 		words[j][k] = '\0';
 	}
-
-	words[j] = NULL;
+	words[j] = '\0';
 
 	return (words);
 }
