@@ -29,13 +29,13 @@ char *argstostr(int ac, char **av)
 	}
 
 	str = malloc(sizeof(char) * (ac + length + 1));
-	
+
 	if (!str)
 	{
 		free(str);
 		return (NULL);
 	}
-	
+
 	for (i = 0; i < ac; i++)
 	{
 		j = 0;
