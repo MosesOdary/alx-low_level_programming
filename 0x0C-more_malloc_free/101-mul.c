@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
 	else
 	{
-		printf("%lld\n", (atoll(argv[1]) * atoll(argv[2])));
+		printf("%ld\n", (atol(argv[1]) * atol(argv[2])));
 		return (0);
 	}
 }
