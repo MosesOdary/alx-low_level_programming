@@ -44,7 +44,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	}
 
 	temp2 = newPtr;
-	
+
 	for (i = 0; i < new_size && i < old_size; i++)
 		temp2[i] = temp[i];
 
