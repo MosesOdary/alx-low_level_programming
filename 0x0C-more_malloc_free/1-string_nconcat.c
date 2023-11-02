@@ -15,7 +15,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	uint16_t s1Length = strlen(s1);
 	uint16_t s2Length = strlen(s2);
 	uint8_t i = 0, j = 0;
-	uint8_t *newString = NULL;
+	char *newString = NULL;
 
 	if (!s1)
 		s1 = "";
