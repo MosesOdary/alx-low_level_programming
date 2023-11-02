@@ -37,14 +37,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		if (i >= s1Length)
 		{
-			newString[i] = s2[j];
-			j++;
+			newString[i] = s2[j++];
 		}
 
 		else if (i < s1Length)
 			newString[i] = s1[i];
 	}
-	
+
 	newString[i] = '\0';
 	return (newString);
 }
