@@ -36,9 +36,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	for (; i < (s1Length + n); i++)
 	{
 		if (i >= s1Length)
-		{
 			newString[i] = s2[j++];
-		}
 
 		else if (i < s1Length)
 			newString[i] = s1[i];
