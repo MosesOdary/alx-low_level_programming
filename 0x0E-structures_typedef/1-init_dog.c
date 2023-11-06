@@ -2,7 +2,7 @@
 
 /**
  * init_dog - initilizes a struct with its parameter values
- * 
+ *
  * @d: the struct to initialize
  * @name: the value to intialize name inside the struct
  * @age: the value to intialize age inside the struct
