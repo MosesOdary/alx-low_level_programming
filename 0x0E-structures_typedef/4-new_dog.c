@@ -14,15 +14,45 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	char *nameCopy = name;
-	char *ownerCopy = owner;
+	dog_t *newDogPtr;
+	__uint16_t i = 0;
+	__uint16_t nameLength = 0;
+	__uint16_t ownerLength = 0;
 
-	dog_t newDog = {.name = name, .age = age, .owner = owner};
-	dog_t *dogPtr = &newDog;
-
-	if (!(newDog.name) || !(newDog.age) || !(newDog.owner))
+	newDogPtr = malloc(sizeof(*newDogPtr));
+	if (!(newDogPtr) || !(name) || !(owner))
+	{
+		free(newDogPtr);
 		return (NULL);
+	}
 
-	return (&newDog);
+	while (*name)
+		nameLength++;
+
+	while(*owner)
+		ownerLength++;
+
+	newDogPtr->name = malloc(nameLength + 1);
+	newDogPtr->owner = malloc(ownerLength + 1);
+
+	if (!(newDogPtr->name) || !(newDogPtr->owner))
+	{
+		free(newDogPtr->owner);
+		free(newDogPtr->name);
+		free(newDogPtr);
+		return (NULL);
+	}
+
+	while (*name)
+		newDogPtr->name[i] = name[i];
+	newDogPtr->name[i] = '\0';
+
+	newDogPtr->age = age;
+
+	while (*owner)
+		newDogPtr->owner[i] = owner[i];
+	newDogPtr->owner[i] = '\0';
+
+	return (newDogPtr);
 }
 
