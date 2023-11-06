@@ -1,11 +1,4 @@
-/**
- * _putchar - Print a char
- *
- * @c: the character to print
- *
- * Return: status code
-*/
-int _putchar(char c);
+#include <stdio.h>
 
 /**
  * main - Entry point
@@ -15,13 +8,7 @@ int _putchar(char c);
 
 int main(void)
 {
-	const char *fileName = __FILE__;
-
-	while (*fileName)
-	{
-		_putchar(*fileName);
-		fileName++;
-	}
+	printf("%s\n", __FILE__);
 
 	return (0);
 }
