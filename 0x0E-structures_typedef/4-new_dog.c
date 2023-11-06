@@ -18,7 +18,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 	__uint16_t nameLength = 0;
 	__uint16_t ownerLength = 0;
 	dog_t *newDogPtr;
-	
+
 	newDogPtr = malloc(sizeof(*newDogPtr));
 
 	if (!(newDogPtr) || !(name) || !(owner))
