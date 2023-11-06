@@ -1,15 +1,15 @@
 /**
  * _putchar - Print a char
- * 
+ *
  * @c: the character to print
- * 
+ *
  * Return: status code
 */
 int _putchar(char c);
 
 /**
  * main - Entry point
- * 
+ *
  * Return: Always 0
 */
 
