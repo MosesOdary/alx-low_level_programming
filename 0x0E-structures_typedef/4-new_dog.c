@@ -14,11 +14,10 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *newDogPtr;
 	__uint16_t i = 0;
 	__uint16_t nameLength = 0;
 	__uint16_t ownerLength = 0;
-
+	dog_t *newDogPtr;
 	newDogPtr = malloc(sizeof(*newDogPtr));
 
 	if (!(newDogPtr) || !(name) || !(owner))
@@ -29,10 +28,8 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	for (nameLength = 0; name[nameLength]; nameLength++)
 		;
-
 	for (ownerLength = 0; owner[ownerLength]; ownerLength++)
 		;
-
 	newDogPtr->name = malloc(nameLength + 1);
 	newDogPtr->owner = malloc(ownerLength + 1);
 
