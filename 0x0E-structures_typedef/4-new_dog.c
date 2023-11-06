@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdlib.h>
 
 #include "dog.h"
 
@@ -27,11 +27,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	for (nameLength = 0; name[nameLength]; nameLength++)
-		;
+	while (*name)
+		nameLength++;
 
-	for (ownerLength = 0; owner[ownerLength]; ownerLength++)
-		;
+	while (*owner)
+		ownerLength++;
 
 	newDogPtr->name = malloc(nameLength + 1);
 	newDogPtr->owner = malloc(ownerLength + 1);
