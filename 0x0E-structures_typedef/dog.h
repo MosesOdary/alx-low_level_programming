@@ -1,5 +1,4 @@
-#ifndef DOG_H
-#define DOG_H
+#pragma once
 
 /*
 * dog_t - Typedef for struct dog
@@ -19,4 +18,3 @@ struct dog
 	char *owner;
 };
 
-#endif
