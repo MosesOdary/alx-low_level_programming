@@ -8,6 +8,7 @@
  * @age: the value to intialize age inside the struct
  * @owner: the value to intialize owner inside the struct
 */
+
 void init_dog(struct dog *d, char *name, float age, char *owner)
 {
 	if (d)
