@@ -23,6 +23,6 @@ int main(void)
 		fileName++;
 	}
 
-	return (0);	
+	return (0);
 }
 
