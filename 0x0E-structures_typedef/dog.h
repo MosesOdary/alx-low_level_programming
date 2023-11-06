@@ -6,6 +6,7 @@
 */
 typedef struct dog dog_t;
 
+
 /**
 * struct dog - Defines a dog with name, age and owner
 * @name: dog's name
