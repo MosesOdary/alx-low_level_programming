@@ -11,7 +11,7 @@
 int main(int argc, char *argv[])
 {
 	char *arr = (char *) main;
-	uint16_t i = 0;
+	int i = 0;
 
 	if (argc != 2)
 	{
@@ -32,6 +32,6 @@ int main(int argc, char *argv[])
 		}
 		printf("%02hhx ", arr[i]);
 	}
-	
+
 	return (0);
 }
