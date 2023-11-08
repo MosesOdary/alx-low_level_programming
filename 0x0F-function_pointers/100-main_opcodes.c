@@ -10,28 +10,37 @@
 
 int main(int argc, char *argv[])
 {
-	char *arr = (char *) main;
-	int i = 0;
+
+	uint16_t i = 0;
+	uint32_t bytes = 0;
+	int (*address)(int, char **) = main;
+	unsigned char opcode = "";
 
 	if (argc != 2)
 	{
 		printf("Error\n");
 		exit(1);
 	}
-	if (atoi(!argv[1]))
+
+	bytes = atoi(argv[1]);
+
+	if (!bytes)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	for (; i < (atoi(argv[1])); i++)
-	{
-		if (i == (atoi(argv[1]) - 1))
-		{
-			printf("%02hhx\n", arr[i]);
-			break;
-		}
-		printf("%02hhx ", arr[i]);
-	}
 
+	for (i = 0; i <  bytes; i++)
+	{
+		opcode = *(unsigned char *)address;
+		printf("%.2x", opcode);
+
+		if (i == (bytes - 1))
+			continue;
+		printf(" ");
+		address++;
+	}
+	printf("\n");
+	
 	return (0);
 }
