@@ -10,7 +10,6 @@
 
 int main(int argc, char *argv[])
 {
-
 	uint16_t i = 0;
 	int32_t bytes = 0;
 	int (*address)(int, char **) = main;
@@ -41,6 +40,6 @@ int main(int argc, char *argv[])
 		address++;
 	}
 	printf("\n");
-	
+
 	return (0);
 }
