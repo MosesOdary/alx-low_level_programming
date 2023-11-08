@@ -13,7 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-	uint16_t num1, num2;
+	int32_t num1, num2;
 	char *operator;
 
 	operator = argv[2];
