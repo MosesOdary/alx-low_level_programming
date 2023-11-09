@@ -9,6 +9,7 @@
  * struct select - utility structure
  *
  * @ident: char variable
+ * @f: function pointer
 */
 typedef struct select
 {
