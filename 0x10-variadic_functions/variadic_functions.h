@@ -5,6 +5,11 @@
 #include <stdarg.h>
 #include <stdint.h>
 
+/**
+ * struct select - utility structure
+ *
+ * @ident: char variable
+*/
 typedef struct select
 {
 	char *ident;
