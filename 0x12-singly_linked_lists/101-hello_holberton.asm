@@ -1,19 +1,18 @@
 global main
 
+; Define printf as an external symbol for the linker
+extern printf
+
 section .text
 main:
-	; Print string
-	mov rax, 1
-	mov rdi, 1
-	mov rsi, string
-	mov rdx, length
-	syscall
-
-	; Exit
-	mov rax, 60
-	mov rdi, 11
-	syscall
+	; Print string by setting up the arguments for printf
+	;  the calling printf
+	mov rdi, string
+	xor eax, eax
+	call printf
+	; move 0 eax as the return value then return control to caller
+	mov eax, 0
+	ret
 
 section .data:
 	string: db "Hello, Holberton",0xa
-	length: equ $-string
