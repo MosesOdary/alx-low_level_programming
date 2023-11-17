@@ -2,7 +2,7 @@
 
 /**
  * free_list - free a list
- * 
+ *
  * @head: The list to free
  *
  * Return: void
