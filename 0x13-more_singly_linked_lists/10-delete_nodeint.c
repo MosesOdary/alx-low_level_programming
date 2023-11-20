@@ -1,5 +1,7 @@
 #include "lists.h"
 
+void pop_list(listint_t **head);
+
 
 /**
 * delete_nodeint_at_index - deletes node at index
@@ -9,9 +11,6 @@
 *
 * Return: 1
 */
-
-void pop_list(listint_t **head);
-
 int delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *deleteNode, *temp;
@@ -53,7 +52,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 *
 * @head: list
 */
-
 void pop_list(listint_t **head)
 {
 	listint_t *temp;

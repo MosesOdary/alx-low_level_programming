@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
-* sinsert_nodeint_at_index -  inserts a new node at position idx
+* insert_nodeint_at_index -  inserts a new node at position idx
 *
 * @head: list
 * @idx: position to insert
