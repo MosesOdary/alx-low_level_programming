@@ -1,50 +1,61 @@
 #include "main.h"
 
+/**
+*_pow - calculates a numer raised to a certain radix
+*
+*@base: integer to raise
+*@radix: radix to raise
+*
+*Return: Integer raised to a radix
+*/
+unsigned int _pow(unsigned int base, int radix)
+{
+	unsigned int output = 1;
 
-bool IsValidBinaryString(const char *binString);
+	if (radix == 0)
+		return (1);
+
+	while (radix > 0)
+	{
+		output *= base;
+		radix--;
+	}
+
+	return (output);
+}
 
 /**
- * binary_to_uint - converts a binary to an unsigned int
- * @binString: the binary number as a string
- *
- * Return: the converted value
- */
-unsigned int binary_to_uint(const char *binString)
+*binary_to_uint - converts base 2 number to an unsigned int
+*
+*@b: binary string
+*
+*Return: unsigned int
+*/
+unsigned int binary_to_uint(const char *b)
 {
-	uint32_t uintResult = 0;
-	uint8_t radix = 1;
-	int16_t stringLength =  strlen(binString);
+	uint32_t total = 0;
+	uint16_t i = 0;
+	uint32_t length, radix = 0;
 
-	if (!IsValidBinaryString(binString))
+	if (!b)
 		return (0);
 
-	while (stringLength--)
+	/* Check if string is valid base 2 string */
+	for (length = 0; b[length]; length++)
 	{
-		uintResult += ((binString[stringLength - 1] - '0') * radix);
-		radix *= 2;
+		if (b[length] != '0' && b[length] != '1')
+			return (0);
 	}
 
-	return (uintResult);
-}
-
-/**
- * IsValidBinaryString - checks if string has only radix 2 digits
- *
- * @binString: string to check
- *
- * Return: true if string is valid
- */
-bool IsValidBinaryString(const char *binString)
-{
-	if (!binString)
-		return (false);
-
-	for (; *binString; binString++)
+	while (--length)
 	{
-		if ((*binString != '1') && (*binString != '0'))
-			return (-1);
+		if (b[length] == '1')
+		{
+			i = _pow(2, radix);
+			total += i;
+		}
+		radix++;
 	}
 
-	return (true);
+	return (total);
 }
-
