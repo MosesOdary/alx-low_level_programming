@@ -14,7 +14,7 @@ int main(int ac, char *argv[])
 	FILE *file1 = fopen(argv[1], "r");
 	FILE *file2 = fopen(argv[2], "a");
 	char buffer[1024];
-	__int8_t n = 0;
+	__int16_t n = 0;
 
 	if (ac != 3)
 	{
