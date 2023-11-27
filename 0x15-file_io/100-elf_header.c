@@ -98,35 +98,49 @@ void Version(unsigned char *e_ident)
 }
 
 /**
- * os_ABI - print the os ABI
+ * OS_ABI - print the os ABI
  * @e_ident: the ELF struct
  * return: no return is a void func.
  */
-void os_ABI(unsigned char *e_ident)
+void OS_ABI(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
-	if (e_ident[EI_OSABI] == ELFOSABI_SYSV)
+	switch (e_ident[EI_OSABI])
+	{
+	case ELFOSABI_SYSV:
 		printf("UNIX - System V\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_HPUX)
+		break;
+	case ELFOSABI_HPUX:
 		printf("UNIX - HP-UX\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_NETBSD)
+		break;
+	case ELFOSABI_NETBSD:
 		printf("UNIX - NetBSD\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_LINUX)
+		break;
+	case ELFOSABI_LINUX:
 		printf("UNIX - Linux\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_SOLARIS)
+		break;
+	case ELFOSABI_SOLARIS:
 		printf("UNIX - Solaris\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_IRIX)
+		break;
+	case ELFOSABI_IRIX:
 		printf("UNIX - IRIX\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_FREEBSD)
+		break;
+	case ELFOSABI_FREEBSD:
 		printf("UNIX - FreeBSD\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_TRU64)
+		break;
+	case ELFOSABI_TRU64:
 		printf("UNIX - TRU64\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_ARM)
+		break;
+	case ELFOSABI_ARM:
 		printf("ARM\n");
-	else if (e_ident[EI_OSABI] == ELFOSABI_STANDALONE)
+		break;
+	case ELFOSABI_STANDALONE:
 		printf("Standalone App\n");
-	else
+		break;
+	default:
 		printf("<unknown: %x>\n", e_ident[EI_OSABI]);
+		break;
+	}
 }
 
 /**
@@ -183,21 +197,16 @@ int main(int argc, char *argv[])
 
 	if (argc != 2)
 		dprintf(STDERR_FILENO, "Usage: error in # of args\n"), exit(98);
-
 	file = malloc(sizeof(Elf64_Ehdr));
-	
 	if (!file)
 		dprintf(STDERR_FILENO, "error in allocate memory\n"), exit(98);
 	fd = open(*(argv + 1), O_RDONLY);
-	
 	if (fd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *(argv + 1));
 		exit(98);
 	}
-	
 	read_ = read(fd, file, sizeof(Elf64_Ehdr));
-	
 	if (read_ == -1)
 	{
 		free(file);
@@ -209,15 +218,13 @@ int main(int argc, char *argv[])
 	Class(file->e_ident);
 	Data(file->e_ident);
 	Version(file->e_ident);
-	os_ABI(file->e_ident);
-	printf("  ABI Version:                       ");
-	printf("%i\n", file->e_ident[EI_ABIVERSION]);
+	OS_ABI(file->e_ident);
+	printf("  ABI Version:                       %i\n",
+			file->e_ident[EI_ABIVERSION]);
 	Type(file->e_type, file->e_ident);
 	EntryPoint(file->e_entry, file->e_ident);
-	
 	free(file);
 	close_ = close(fd);
-	
 	if (close_)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd\n");
