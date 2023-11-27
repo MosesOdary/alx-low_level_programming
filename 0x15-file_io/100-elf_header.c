@@ -34,8 +34,8 @@ void Verify(unsigned char *e_ident)
 */
 void Magic(unsigned char *e_ident)
 {
-	int i; /* the index to count the Magic bytes */
-	int limit;
+	__int16_t i; /* the index to count the Magic bytes */
+	__int16_t limit;
 
 	limit = EI_NIDENT - 1;
 
