@@ -9,25 +9,14 @@
 (((n << 16) >> 24) << 16) | (n >> 24))
 
 /**
-* verify- check if file a valid ELF file
+* Verify- check if file a valid ELF file
 *
 * @e_ident: the ELF struct
 */
-void verify(unsigned char *e_ident)
+void Verify(unsigned char *e_ident)
 {
-	char fileString[5]; /*A copy of the first 4 file characters to check*/
-
-	char elfSignature[5];
-	elfSignature[0] = 0x7f;
-	elfSignature[1] = 'E';
-	elfSignature[2] = 'L';
-	elfSignature[3] = 'F';
-	elfSignature[4] = '\0';
-
-	strncpy(fileString, e_ident, 4);
-	fileString[4] = '\0';
-	
-	if ((strcmp(fileString, elfSignature)))
+	if ((*(e_ident) == 0x7f) && (*(e_ident + 1) == 'E') &&
+	    (*(e_ident + 2) == 'L') && (*(e_ident + 3) == 'F'))
 	{
 		printf("ELF Header:\n");
 	}
@@ -39,13 +28,13 @@ void verify(unsigned char *e_ident)
 }
 
 /**
-* magic - print magic number
+* Magic - print Magic number
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void magic(unsigned char *e_ident)
+void Magic(unsigned char *e_ident)
 {
-	uint32_t i; /* the index to count the magic bytes */
+	int i; /* the index to count the Magic bytes */
 	int limit;
 
 	limit = EI_NIDENT - 1;
@@ -59,15 +48,15 @@ void magic(unsigned char *e_ident)
 }
 
 /**
-* class - print the class of the ELF
+* Class - print the Class of the ELF
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void class(unsigned char *e_ident)
+void Class(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
 	if (e_ident[EI_CLASS] == ELFCLASSNONE)
-		printf("This class is invalid\n");
+		printf("This Class is invalid\n");
 	else if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("ELF32\n");
 	else if (e_ident[EI_CLASS] == ELFCLASS64)
@@ -77,15 +66,15 @@ void class(unsigned char *e_ident)
 }
 
 /**
-* data - print mthe type of data
+* Data - print mthe Type of Data
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void data(unsigned char *e_ident)
+void Data(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
 	if (e_ident[EI_DATA] == ELFDATANONE)
-		printf("Unknown data format\n");
+		printf("Unknown Data format\n");
 	else if (e_ident[EI_DATA] == ELFDATA2LSB)
 		printf("2's complement, little endian\n");
 	else if (e_ident[EI_DATA] == ELFDATA2MSB)
@@ -95,11 +84,11 @@ void data(unsigned char *e_ident)
 }
 
 /**
-* version - print the version of the file
+* Version - print the Version of the file
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void version(unsigned char *e_ident)
+void Version(unsigned char *e_ident)
 {
 	printf("  Version:                           ");
 	if (e_ident[EI_VERSION] == EV_CURRENT)
@@ -109,11 +98,11 @@ void version(unsigned char *e_ident)
 }
 
 /**
- * osabi - print the osabi
+ * os_ABI - print the os ABI
  * @e_ident: the ELF struct
  * return: no return is a void func.
  */
-void osabi(unsigned char *e_ident)
+void os_ABI(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
 	if (e_ident[EI_OSABI] == ELFOSABI_SYSV)
@@ -141,18 +130,18 @@ void osabi(unsigned char *e_ident)
 }
 
 /**
-* type - print the type
+* Type - print the Type
 * @e_ident: the ELF struct
-* @e_type: data to compare and print.
+* @e_type: Data to compare and print.
 * return: no return is a void func.
 */
-void type(unsigned int e_type, unsigned char *e_ident)
+void Type(unsigned int e_type, unsigned char *e_ident)
 {
 	e_ident[EI_DATA] == ELFDATA2MSB ? e_type = e_type >> 8 : e_type;
 
 	printf("  Type:                              ");
 	if (e_type == ET_NONE)
-		printf("NONE (Unknown type)\n");
+		printf("NONE (Unknown Type)\n");
 	else if (e_type == ET_REL)
 		printf("REL (Relocatable file)\n");
 	else if (e_type == ET_EXEC)
@@ -166,12 +155,12 @@ void type(unsigned int e_type, unsigned char *e_ident)
 }
 
 /**
-* entry - print the entry point
+* EntryPoint - print the EntryPoint point
 * @e_ident: the ELF struct
-* @e_entry: the data to print
+* @e_entry: the Data to print
 * return: no return is a void func.
 */
-void entry(unsigned int e_entry, unsigned char *e_ident)
+void EntryPoint(unsigned int e_entry, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_entry = REV(e_entry);
@@ -215,16 +204,16 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", *(argv + 1));
 		exit(98);
 	}
-	verify(file->e_ident);
-	magic(file->e_ident);
-	class(file->e_ident);
-	data(file->e_ident);
-	version(file->e_ident);
-	osabi(file->e_ident);
+	Verify(file->e_ident);
+	Magic(file->e_ident);
+	Class(file->e_ident);
+	Data(file->e_ident);
+	Version(file->e_ident);
+	os_ABI(file->e_ident);
 	printf("  ABI Version:                       ");
 	printf("%i\n", file->e_ident[EI_ABIVERSION]);
-	type(file->e_type, file->e_ident);
-	entry(file->e_entry, file->e_ident);
+	Type(file->e_type, file->e_ident);
+	EntryPoint(file->e_entry, file->e_ident);
 	
 	free(file);
 	close_ = close(fd);
