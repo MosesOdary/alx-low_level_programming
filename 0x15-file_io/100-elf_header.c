@@ -28,18 +28,18 @@ void Verify(unsigned char *e_ident)
 }
 
 /**
-* MagicNumber - print MagicNumber number
+* Magic - print Magic number
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void MagicNumber(unsigned char *e_ident)
+void Magic(unsigned char *e_ident)
 {
-	__int16_t i; /* the index to count the MagicNumber bytes */
+	__int16_t i; /* the index to count the Magic bytes */
 	__int16_t limit;
 
 	limit = EI_NIDENT - 1;
 
-	printf("  MagicNumber:   ");
+	printf("  Magic:   ");
 
 	for (i = 0; i < limit; i++)
 		printf("%02x ", *(e_ident + i));
@@ -48,15 +48,15 @@ void MagicNumber(unsigned char *e_ident)
 }
 
 /**
-* ElfClass - print the ElfClass of the ELF
+* Class - print the Class of the ELF
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void ElfClass(unsigned char *e_ident)
+void Class(unsigned char *e_ident)
 {
-	printf("  ElfClass:                             ");
+	printf("  Class:                             ");
 	if (e_ident[EI_CLASS] == ELFCLASSNONE)
-		printf("This ElfClass is invalid\n");
+		printf("This Class is invalid\n");
 	else if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("ELF32\n");
 	else if (e_ident[EI_CLASS] == ELFCLASS64)
@@ -84,13 +84,13 @@ void Data(unsigned char *e_ident)
 }
 
 /**
-* FileVer - print the file version
+* Version - print the Version of the file
 * @e_ident: the ELF struct
 * return: no return is a void func.
 */
-void FileVer(unsigned char *e_ident)
+void Version(unsigned char *e_ident)
 {
-	printf("  FileVer:                           ");
+	printf("  Version:                           ");
 	if (e_ident[EI_VERSION] == EV_CURRENT)
 		printf("%i (current)\n", EV_CURRENT);
 	else
@@ -98,11 +98,11 @@ void FileVer(unsigned char *e_ident)
 }
 
 /**
- * OS_ABI - print the os ABI
+ * os_ABI - print the os ABI
  * @e_ident: the ELF struct
  * return: no return is a void func.
  */
-void OS_ABI(unsigned char *e_ident)
+void os_ABI(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
 	if (e_ident[EI_OSABI] == ELFOSABI_SYSV)
@@ -131,10 +131,8 @@ void OS_ABI(unsigned char *e_ident)
 
 /**
 * Type - print the Type
-*
 * @e_ident: the ELF struct
 * @e_type: Data to compare and print.
-*
 * return: no return is a void func.
 */
 void Type(unsigned int e_type, unsigned char *e_ident)
@@ -207,12 +205,12 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 	Verify(file->e_ident);
-	MagicNumber(file->e_ident);
-	ElfClass(file->e_ident);
+	Magic(file->e_ident);
+	Class(file->e_ident);
 	Data(file->e_ident);
-	FileVer(file->e_ident);
-	OS_ABI(file->e_ident);
-	printf("  ABI FileVer:                       ");
+	Version(file->e_ident);
+	os_ABI(file->e_ident);
+	printf("  ABI Version:                       ");
 	printf("%i\n", file->e_ident[EI_ABIVERSION]);
 	Type(file->e_type, file->e_ident);
 	EntryPoint(file->e_entry, file->e_ident);
