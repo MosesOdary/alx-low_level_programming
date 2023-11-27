@@ -25,9 +25,10 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (!file)
 		return (-1);
 
-	while (text_content[i++])
+	while (text_content[i] != '\0')
 	{
 		putc(text_content[i], file);
+		i++;
 	}
 
 	fclose(file);
