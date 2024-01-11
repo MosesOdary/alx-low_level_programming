@@ -7,7 +7,7 @@
  * @head: pointer to the list head
  * @n: integer to be added to the list
  *
- * Return: Address of new element 
+ * Return: Address of new element
 */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
