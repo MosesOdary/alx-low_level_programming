@@ -10,20 +10,17 @@
 size_t print_dlistint(const dlistint_t *h)
 {
 	uint16_t i = 0;
+	dlistint_t * this = h;
 
 	if (!h)
 		return (-1);
 
-	for (; h->next; i++)
+	for (; this; i++)
 	{
 		printf("%d\n", h->n);
-		h = h->next;
+		this = this->next;
 
 	}
-
-	printf("%d\n", h->n);
-	h = h->next;
-	i++;
 
 	return (i);
 }
