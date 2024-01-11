@@ -12,7 +12,7 @@ size_t print_dlistint(const dlistint_t *h)
 	uint16_t i = 0;
 
 	if (!h)
-		return (-1);
+		return (i);
 
 	for (; h->next; i++)
 	{
