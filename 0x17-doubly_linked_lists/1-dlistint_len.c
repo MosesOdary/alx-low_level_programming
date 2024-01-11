@@ -1,6 +1,12 @@
 #include "lists.h"
 
 
+/**
+ * dlistint_len - Return the list length
+ * @h: The list to check
+ *
+ * Return: The list's size
+*/
 size_t dlistint_len(const dlistint_t *h)
 {
 	uint16_t i = 0;
@@ -11,5 +17,5 @@ size_t dlistint_len(const dlistint_t *h)
 		this = this->next;
 	}
 
-	return i;
+	return (i);
 }
