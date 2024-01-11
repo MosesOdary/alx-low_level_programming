@@ -4,10 +4,12 @@
 size_t dlistint_len(const dlistint_t *h)
 {
 	uint16_t i = 0;
+	const dlistint_t *this = h;
 
-	for (; h->next; i++)
+	for (; this; i++)
 	{
+		this = this->next;
 	}
 
-	return ++i;
+	return i;
 }
