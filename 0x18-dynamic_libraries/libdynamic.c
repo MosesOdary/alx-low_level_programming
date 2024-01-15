@@ -63,7 +63,7 @@ void _puts(char *s)
 {
 	uint16_t length = _strlen(s);
 
-	return (write(1, s, length));
+	write(1, s, length);
 }
 
 char *_strcpy(char *dest, char *src)
@@ -84,7 +84,7 @@ int _atoi(char *s)
 {
 	uint16_t num = 0;
 	uint16_t i;
-	uint16_t strLength = StringLength(s);
+	uint16_t strLength = _strlen(s);
 	int16_t sign = 1;
 
 	for (i = 0; i <  strLength; i++)
