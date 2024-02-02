@@ -2,37 +2,38 @@
 
 
 /**
-* hash_table_print - prints a hashtable
-*
-* @ht: hashTable
-*
+ * hash_table_print - Prints a hash table
+ *
+ * @ht: A pointer to the hash table to print
+ *
 */
 void hash_table_print(const hash_table_t *ht)
 {
-	uint64_t i = 0;
-	uint64_t j = 0;
-	hash_node_t *temp = NULL;
+	hash_node_t *node;
+	uint64_t i;
+	bool printComma = false;
 
-	if (!ht)
+	if (ht == NULL)
 		return;
 
 	printf("{");
-
 	for (i = 0; i < ht->size; i++)
 	{
-		temp = ht->array[i];
-		while (temp)
+		if (ht->array[i] != NULL)
 		{
-			if (j)
+			if (printComma == 1)
 				printf(", ");
 
-			printf("'%s': '%s'", temp->key, temp->value);
-
-			temp = temp->next;
-
-			j++;
+			node = ht->array[i];
+			while (node)
+			{
+				printf("%s: %s", node->key, node->value);
+				node = node->next;
+				if (node)
+					printf(", ");
+			}
+			printComma = true;
 		}
 	}
-
 	printf("}\n");
 }
