@@ -47,8 +47,7 @@ int b_search(int *array, size_t low, size_t high, int value)
 
 
 /**
- * exponential_search - Function that searches for a value in a sorted array
- * of integers using the Exponential search algorithm
+ * exponential_search - Search for a value in sorted int array
  *
  * @array: Array is a pointer to the first element of the array to search in
  * @size: Number of elements in array
