@@ -1,7 +1,7 @@
 #include "search_algos.h"
 
 /**
- * advanced_binary_recursive - function that searches recursively for a value in a sorted int array
+ * advanced_binary_recursive - Search recursively for a value in an int array
  *
  * @array: First element of the sub-array to search.
  * @left: starting index of the sub-array to search.
