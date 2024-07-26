@@ -1,32 +1,47 @@
-#include "main.h"
 #include <stdio.h>
-
 /**
- * main - Entry point
+ * main - find and prints the first 98 Fibonacci numbers,
+ * starting with 1 and 2
+ * followed by a new line
+ * Return: Always 0 (Success)
  *
- * Fibonacci - Returns the fibonacci of a certain number
+ * FUNCTIONALITY *
  *
- * @number - The number whose fibonacci value is being computed
+ * It prints the first 100 Fibonacci numbers.
  *
- * Return: 0 - success
  */
-
-unsigned int Fibonacci(int number);
 
 int main(void)
 {
-	int i = 2;
+	unsigned long int i, j, k, j1, j2, k1, k2;
 
-	/*for (; i < 100; i++)*/
-		printf("%d, ", Fibonacci(12));
+	j = 1;
+	k = 2;
+
+	printf("%lu", j);
+	for (i = 1; i < 91; i++)
+	{
+		printf(", %lu", k);
+		k = k + j;
+		j = k - j;
+	}
+
+	j1 = j / 1000000000;
+	j2 = j % 1000000000;
+	k1 = k / 1000000000;
+	k2 = k % 1000000000;
+
+	for (i = 92; i < 99; ++i)
+	{
+		printf(", %lu", k1 + (k2 / 1000000000));
+		printf("%lu", k2 % 1000000000);
+		k1 = k1 + j1;
+		j1 = k1 - j1;
+		k2 = k2 + j2;
+		j2 = k2 - j2;
+	}
+
+	printf("\n");
 
 	return (0);
-}
-
-unsigned int Fibonacci(int number)
-{
-	if ((number == 1) || (number == 0))
-		return (number);
-	else
-		return (Fibonacci(number - 1) + Fibonacci(number - 2));
 }
