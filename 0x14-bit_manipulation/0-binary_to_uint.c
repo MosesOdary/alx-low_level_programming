@@ -1,61 +1,46 @@
 #include "main.h"
-
 /**
-*_pow - calculates a numer raised to a certain radix
-*
-*@base: integer to raise
-*@radix: radix to raise
-*
-*Return: Integer raised to a radix
-*/
-unsigned int _pow(unsigned int base, int radix)
+ * binary_to_uint - converts a binary to an unsigned int
+ * @b: the binary number as a string
+ *
+ * Return: the converted value
+ */
+unsigned int binary_to_uint(const char *b)
 {
-	unsigned int output = 1;
+unsigned int decimal = 0;
+int str_len = 0, base = 1;
 
-	if (radix == 0)
-		return (1);
+if (!check_valid_string(b))
+return (0);
 
-	while (radix > 0)
-	{
-		output *= base;
-		radix--;
-	}
+while (b[str_len] != '\0')
+str_len++;
 
-	return (output);
+while (str_len)
+{
+decimal += ((b[str_len - 1] - '0') * base);
+base *= 2;
+str_len--;
+}
+return (decimal);
 }
 
 /**
-*binary_to_uint - converts base 2 number to an unsigned int
-*
-*@b: binary string
-*
-*Return: unsigned int
-*/
-unsigned int binary_to_uint(const char *b)
+ * check_valid_string - checks if a string has only 0's and 1's
+ * @b: string to be checked
+ *
+ * Return: 1 if string is valid, 0 otherwise
+ */
+int check_valid_string(const char *b)
 {
-	uint32_t total = 0;
-	uint16_t i = 0;
-	uint32_t length, radix = 0;
+if (b == NULL)
+return (0);
 
-	if (!b)
-		return (0);
-
-	/* Check if string is valid base 2 string */
-	for (length = 0; b[length]; length++)
-	{
-		if (b[length] != '0' && b[length] != '1')
-			return (0);
-	}
-
-	while (--length)
-	{
-		if (b[length] == '1')
-		{
-			i = _pow(2, radix);
-			total += i;
-		}
-		radix++;
-	}
-
-	return (total);
+while (*b)
+{
+if (*b != '1' && *b != '0')
+return (0);
+b++;
+}
+return (1);
 }
